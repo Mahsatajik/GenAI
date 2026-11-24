@@ -1,0 +1,4 @@
+patient_id,text
+synthetic-001,"This is a fictional example. The patient has type 2 diabetes. No heart failure hospitalization is documented."
+synthetic-002,"This is a fictional example. The patient reports a heart failure hospitalization. No type 2 diabetes is documented."
+synthetic-003,"This is a fictional example. Family history includes type 2 diabetes. The patient was treated for a sprained ankle."
