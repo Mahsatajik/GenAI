@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clinical-trial-screening"
+version = "0.2.0"
+description = "A Python pipeline for evidence-based clinical trial criterion screening."
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  {name = "Mehrnoosh Azizi"},
+  {name = "Reza Rezaeian"},
+  {name = "Mahsa Tajik"},
+]
+dependencies = [
+  "google-genai>=1.7,<2",
+  "chromadb>=1,<2",
+  "langgraph>=1,<2",
+  "pydantic>=2,<3",
+  "numpy>=1.26,<3",
+  "tenacity>=8,<10",
+  "rouge-score>=0.1.2,<0.2",
+  "rapidfuzz>=3,<4",
+]
+
+[project.optional-dependencies]
+ui = ["gradio>=6,<7"]
+dev = ["ruff>=0.9", "build>=1"]
+
+[project.scripts]
+trial-screen = "clinical_trials.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+clinical_trials = ["examples/*.csv", "examples/trials/*.csv", "assets/*.css"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F"]
